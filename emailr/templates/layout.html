@@ -1,19 +1,19 @@
 <!doctype html>
 <title>emailr</title>
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
 <div class="page">
-    <h1>emailr: an email reminder app</h1>
-    <div class="navbar">
-        {% if session.logged_in %}
-        <a href="{{ url_for('logout') }}">log out</a>
-        {% else %}
+    <h1>remindr: an app to send recurring reminders</h1>
+    <div class="metanav">
+        {% if session.id == '' %}
         <a href="{{ url_for('login') }}">log in</a>
+        {% else %}
+        <a href="{{ url_for('logout') }}">log out</a>
         {% endif %}
     </div>
     {% for message in get_flashed_messages() %}
-    <div class="messages">
-        {{ message }}
-    </div>
+        <div class="flash">{{ message }}</div>
     {% endfor %}
     {% block body %}{% endblock %}
+    <script src="{{ url_for('static', filename='jstz.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='test.js') }}"></script>
 </div>

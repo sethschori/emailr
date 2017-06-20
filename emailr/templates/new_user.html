@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block body %}
+
+        <p>Create your account!</p>
+        <form action="{{ url_for('new_user') }}" method="post" class="new-user">
+            <dl>
+                <div>
+                    <label for="e-mail">Your e-mail address</label>
+                    <input id="e-mail" name="e-mail" type="text" required
+                           placeholder="you@example.com">
+                </div>
+                <div>
+                    <label for="timezone">Your time zone</label>
+                    <select id="timezone" name="timezone" required>
+                        <option value="" selected="selected">--</option>
+                        {% for zone in available_tz %}
+                        <option value="{{ zone }}">{{ zone }}</option>
+                        {#
+                        <option value="{{ zone }}" {% if zone == "America/New_York" %}selected="True"{% endif %}>{{ zone }}</option>
+                        #}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <input type="submit" id="signup" value="Sign Up">
+                </div>
+            </dl>
+        </form>
+
+{% endblock %}
