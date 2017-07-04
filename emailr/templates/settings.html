@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+
+        <div>
+            <h2>Settings for {{ user.email|safe }}</h2>
+                <p>Email: {{ user.email }}</p>
+                <p>Timezone: {{ user.timezone_str }}</p>
+        </div>
+{% endblock %}

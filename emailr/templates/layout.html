@@ -1,19 +1,59 @@
 <!doctype html>
-<title>emailr</title>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
-<div class="page">
-    <h1>remindr: an app to send recurring reminders</h1>
-    <div class="metanav">
-        {% if session.id == '' %}
-        <a href="{{ url_for('login') }}">log in</a>
-        {% else %}
-        <a href="{{ url_for('logout') }}">log out</a>
-        {% endif %}
-    </div>
-    {% for message in get_flashed_messages() %}
-        <div class="flash">{{ message }}</div>
-    {% endfor %}
-    {% block body %}{% endblock %}
-    <script src="{{ url_for('static', filename='jstz.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='test.js') }}"></script>
-</div>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jog.gy: reminders to jog your brain</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='font-awesome-4.7.0/css/font-awesome.min.css') }}"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+</head>
+<body>
+        <header class="navbar clearfix">
+            <div class="navbarcontent">
+                <h1 class="navbarname"><a href="{{ url_for('home') }}">jog.gy</a></h1>
+                <ul class="navbaritems clearfix">
+                    <li class="navbaritem"><a href="{{ url_for('home') }}">
+                        <span class="fa fa-home fa-fw navbarsprite"
+                              aria-hidden="true"></span>&nbsp;Home</a></li>
+                    {% if session.id == None %}
+                    <li class="navbaritem"><a href="{{ url_for('new_user') }}">
+                        <span class="fa fa-user-plus fa-fw navbarsprite"
+                              aria-hidden="true"></span>&nbsp;Sign Up</a></li>
+                    <li class="navbaritem"><a href="{{ url_for('login') }}">
+                        <span class="fa fa-sign-in fa-fw navbarsprite"
+                              aria-hidden="true"></span>&nbsp;Log In</a></li>
+                    {% else %}
+                    <li class="navbaritem"><a href="{{ url_for('show_events')}}">
+                        <span class="fa fa-calendar fa-fw navbarsprite"
+                              aria-hidden="true"></span>&nbsp;My Reminders</a></li>
+                    <li class="navbaritem"><a href="{{ url_for('settings')}}">
+                        <span class="fa fa-cog fa-fw navbarsprite"
+                              aria-hidden="true"></span>&nbsp;My Settings</a></li>
+                    <li class="navbaritem"><a href="{{ url_for('logout') }}">
+                        <span class="fa fa-sign-out fa-fw navbarsprite"
+                              aria-hidden="true"></span>&nbsp;Log Out</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </header><!-- navbar -->
+        <div class="page">
+            <div class="content">
+            {% for message in get_flashed_messages() %}
+                <div class="flash">{{ message }}</div>
+            {% endfor %}
+            {% block body %}{% endblock %}
+        </div><!-- content -->
+    </div><!-- page -->
+        {#
+        <div class="footer">
+            <div class="footer-content">
+                <ul class="footer-items">
+                    <li class="footer-item"><a href="https://github.com/sethschori/">created by Seth Schori</a></li>
+                    <li class="footer-item"><a href="{{ url_for('home') }}#disclaimer">disclaimer</a></li>
+                    <li class="footer-item"><a href="{{ url_for('home') }}#privacy">privacy</a></li>
+                </ul>
+            </div>
+        </div><!-- footer -->
+        #}
+</body>

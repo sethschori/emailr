@@ -1,112 +1,112 @@
 {% extends "layout.html" %}
 {% block body %}
 
-        <form action="{{ url_for('add_event') }}" method="post" class="add-event">
-            <dl>
-                <div>
-                    <label for="weekday">Day of week</label>
-                    <select id="weekday" name="weekday" required>
-                        <option value="">--</option>
-                        <option value="0">Monday</option>
-                        <option value="1">Tuesday</option>
-                        <option value="2">Wednesday</option>
-                        <option value="3">Thursday</option>
-                        <option value="4">Friday</option>
-                        <option value="5">Saturday</option>
-                        <option value="6">Sunday</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="hour">Time</label>
-                    <select id="hour" name="hour" required>
-                        <option value="">--</option>
-                        <option value="0">00:00 / 12:00 AM</option>
-                        <option value="1">01:00 / &nbsp;1:00 AM</option>
-                        <option value="2">02:00 / &nbsp;2:00 AM</option>
-                        <option value="3">03:00 / &nbsp;3:00 AM</option>
-                        <option value="4">04:00 / &nbsp;4:00 AM</option>
-                        <option value="5">05:00 / &nbsp;5:00 AM</option>
-                        <option value="6">06:00 / &nbsp;6:00 AM</option>
-                        <option value="7">07:00 / &nbsp;7:00 AM</option>
-                        <option value="8">08:00 / &nbsp;8:00 AM</option>
-                        <option value="9">09:00 / &nbsp;9:00 AM</option>
-                        <option value="10">10:00 / 10:00 AM</option>
-                        <option value="11">11:00 / 11:00 AM</option>
-                        <option value="12">12:00 / 12:00 PM</option>
-                        <option value="13">13:00 / &nbsp;1:00 PM</option>
-                        <option value="14">14:00 / &nbsp;2:00 PM</option>
-                        <option value="15">15:00 / &nbsp;3:00 PM</option>
-                        <option value="16">16:00 / &nbsp;4:00 PM</option>
-                        <option value="17">17:00 / &nbsp;5:00 PM</option>
-                        <option value="18">18:00 / &nbsp;6:00 PM</option>
-                        <option value="19">19:00 / &nbsp;7:00 PM</option>
-                        <option value="20">20:00 / &nbsp;8:00 PM</option>
-                        <option value="21">21:00 / &nbsp;9:00 PM</option>
-                        <option value="22">22:00 / 10:00 PM</option>
-                        <option value="23">23:00 / 11:00 PM</option>
-                    </select>
-                    <label for="minute">:</label>
-                    <select id="minute" name="minute" required>
-                        <option value="">--</option>
-                        <option value="0">:00</option>
-                        <option value="5">:05</option>
-                        <option value="10">:10</option>
-                        <option value="15">:15</option>
-                        <option value="20">:20</option>
-                        <option value="25">:25</option>
-                        <option value="30">:30</option>
-                        <option value="35">:35</option>
-                        <option value="40">:40</option>
-                        <option value="45">:45</option>
-                        <option value="50">:50</option>
-                        <option value="55">:55</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="user-tz">Time zone</label>
-                    <select id="user-tz" name="user-tz" selected="true" disabled="disabled">
-                        <option value="">{{ user_tz }}</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="subject">Subject</label>
-                    <input id="subject" name="subject" type="text" required
-                           placeholder="e.g. Don't stay up late tonight!">
-                    <em>(This will be the subject of your reminder e-mail.)</em>
-                </div>
-                <dd><input type="submit" value="Submit">
-            </dl>
+        <h2>Add a Reminder</h2>
+        <form action="{{ url_for('add_event') }}" method="post" class="form-group add-event">
+            <div class="form-row">
+                <label for="weekday" class="form-label"><span
+                        class="fa fa-sun-o fa-fw" aria-hidden="true"></span></label>
+                <select id="weekday" class="form-element" name="weekday" required>
+                    <option value="">Select the day of the week</option>
+                    <option value="0">Monday</option>
+                    <option value="1">Tuesday</option>
+                    <option value="2">Wednesday</option>
+                    <option value="3">Thursday</option>
+                    <option value="4">Friday</option>
+                    <option value="5">Saturday</option>
+                    <option value="6">Sunday</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="hour" class="form-label"><span
+                        class="fa fa-clock-o fa-fw" aria-hidden="true"></span></label>
+                <select id="hour" class="form-element" name="hour" required>
+                    <option value="">Select the hour</option>
+                    <option value="0">00 / 12 AM</option>
+                    <option value="1">01 / &nbsp;1 AM</option>
+                    <option value="2">02 / &nbsp;2 AM</option>
+                    <option value="3">03 / &nbsp;3 AM</option>
+                    <option value="4">04 / &nbsp;4 AM</option>
+                    <option value="5">05 / &nbsp;5 AM</option>
+                    <option value="6">06 / &nbsp;6 AM</option>
+                    <option value="7">07 / &nbsp;7 AM</option>
+                    <option value="8">08 / &nbsp;8 AM</option>
+                    <option value="9">09 / &nbsp;9 AM</option>
+                    <option value="10">10 / 10 AM</option>
+                    <option value="11">11 / 11 AM</option>
+                    <option value="12">12 / 12 PM</option>
+                    <option value="13">13 / &nbsp;1 PM</option>
+                    <option value="14">14 / &nbsp;2 PM</option>
+                    <option value="15">15 / &nbsp;3 PM</option>
+                    <option value="16">16 / &nbsp;4 PM</option>
+                    <option value="17">17 / &nbsp;5 PM</option>
+                    <option value="18">18 / &nbsp;6 PM</option>
+                    <option value="19">19 / &nbsp;7 PM</option>
+                    <option value="20">20 / &nbsp;8 PM</option>
+                    <option value="21">21 / &nbsp;9 PM</option>
+                    <option value="22">22 / 10 PM</option>
+                    <option value="23">23 / 11 PM</option>
+                </select>
+                <label for="minute" class="form-label"><span class="fa fa-clock-o fa-fw"
+                                                             aria-hidden="true"></span></label>
+                <select id="minute" class="form-element" name="minute" required>
+                    <option value="">Select the minute</option>
+                    <option value="0">:00</option>
+                    <option value="5">:05</option>
+                    <option value="10">:10</option>
+                    <option value="15">:15</option>
+                    <option value="20">:20</option>
+                    <option value="25">:25</option>
+                    <option value="30">:30</option>
+                    <option value="35">:35</option>
+                    <option value="40">:40</option>
+                    <option value="45">:45</option>
+                    <option value="50">:50</option>
+                    <option value="55">:55</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="subject" class="form-label"><span
+                        class="fa fa-keyboard-o fa-fw" aria-hidden="true"></span></label>
+                <input id="subject" class="form-element" name="subject" type="text" required
+                       placeholder="Subject of your reminder e-mail">
+            </div>
+            <div class="form-row">
+                <input type="submit" value="Submit" class="button">
+            </div>
         </form>
 
         <div>
-            <h2>Reminders for {{ user_email|safe }} {{ current_user }}</h2>
-                <table>
-                    <thead>
-                        <td>Day</td>
-                        <td>Time</td>
-                        <td>Subject</td>
-                    </thead>
-                    {% for event in events %}
-                    <tr {% if event.id == to_highlight %}class="highlighted"{%
-                        endif %}>
-                        <td>{{ day_int_to_text(event.local_weekday) }}s</td>
-                        <td>{{ event.local_time.strftime("%I:%M %p") }}</td>
-                        <td>{{ event.subject|safe }}</td>
-                        <td>
-                            <form action="{{ url_for('delete_event') }}"
-                                  method=post class=delete-event>
-                                <input type="hidden" value="{{ event.id }}"
-                                       id="event_to_delete"
-                                       name="event_to_delete">
-                                <input type=submit value="Delete">
-                            </form>
-                        </td>
-                    </tr>
-                    {% else %}
-                    <tr>
-                        <td colspan="3"><em>You don't have any reminders yet.</em></td>
-                    </tr>
-                    {% endfor %}
-                </table>
+            <h2 id="my-reminders">My Reminders</h2>
+            <table class="remindersTable">
+                <thead class="remindersHeader">
+                <td>Day</td>
+                <td>Time</td>
+                <td>Timezone</td>
+                <td>Subject</td>
+                </thead>
+                {% for event in events %}
+                <tr class="remindersRow{% if event.id == to_highlight %} highlighted{% endif %}">
+                    <td class="remindersCell" id="remindersDay">{{ day_int_to_text(event.local_weekday) }}s</td>
+                    <td class="remindersCell" id="remindersTime">{{ event.local_time.strftime("%I:%M %p") }}</td>
+                    <td class="remindersCell" id="remindersTimezone">{{ user_tz }}</td>
+                    <td class="remindersCell" id="remindersSubject">{{ event.subject|safe }}</td>
+                    <td class="remindersCell" id="remindersDelete">
+                        <form action="{{ url_for('delete_event') }}"
+                              method=post class=delete-event>
+                            <input type="hidden" value="{{ event.id }}"
+                                   id="event_to_delete"
+                                   name="event_to_delete">
+                            <input type=submit value="Delete" class="button small">
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="3" class="no-reminders"><em>You don't have any reminders yet.</em></td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
+
 {% endblock %}

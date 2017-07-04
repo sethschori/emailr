@@ -5,19 +5,27 @@
 * {
 	box-sizing: border-box;
 	font-family: 'Open Sans', sans-serif;
-	/*border: 1px red solid;*/
+	font-weight: 300;
+    /*border: 1px red solid;*/
 }
 
 body {
-	color: #333;
-	padding: 20px;
+	color: #555;
+	padding: 0px;
 	font-size: .85em;
 	line-height: 1.7em;
-	background-color: white;
+	background-color: #f5f5f5;
+	min-width: 400px;
 }
 
 a {
     text-decoration: none;
+    color: #247ba0;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-decoration-style: dotted;
 }
 
 h1 {
@@ -26,18 +34,30 @@ h1 {
 }
 
 .button {
-    background-color: #4CAF50; /* Green */
     border: none;
+    background-color: #70c1b3;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: .75em;
+    font-size: 1.5em;
+    width: 200px;
+    text-transform: uppercase;
+    border-radius: 3px;
 }
 
 .button:hover {
-    background-color: yellow;
+    background-color: #b2dbbf;
+    text-decoration: none;
+}
+
+::selection {
+  background: #f3ffbd; /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+  background: #f3ffbd; /* Gecko Browsers */
 }
 
 /* =================================
@@ -47,6 +67,16 @@ h1 {
 .content {
     width: 80%;
     margin: 0px auto;
+    background-color: white;
+    padding: 60px;
+}
+
+.flash {
+    background-color: #f3ffbd;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 1em;
+    margin-bottom: 20px;
 }
 
 /* =================================
@@ -56,16 +86,14 @@ h1 {
 .form-group {
     display: block;
     min-width: 400px;
-    padding: 10px 20px;
-    /*border: 1px black solid;*/
-    background-color: #f5f5f5;
+    padding: 0px;
 }
 
 .form-row {
     display: table;
     position: relative;
     width: 100%;
-    margin: 10px 0px;
+    margin-bottom: 30px;
     line-height: 2em;
 }
 
@@ -73,7 +101,8 @@ h1 {
     display: table-cell;
     width: 55px;
     text-align: center;
-    border-color: black;
+    background-color: #f5f5f5;
+    border-color: #a4a4a4;
     border-style: solid;
     border-width: 1px 0px 1px 1px;
     margin: 0px;
@@ -83,23 +112,26 @@ h1 {
 .form-element {
     display: table-cell;
     width: 100%;
-    border: 1px black solid;
+    border: 1px #a4a4a4 solid;
     border-radius: 0px;
     padding: 12px 20px;
     margin: 0px;
-    background-color: yellow;
+    background-color: white;
     vertical-align: center;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
 }
 
 .form-descriptor {
-    margin-top: -1.1em;
+    margin-top: -2.5em;
     margin-left: 75px;
-    color: red;
-    font-size: .75em;
+    margin-bottom: 20px;
+    color: #a4a4a4;
+    font-size: .85em;
 }
 
 .form-row .button {
-    margin: 10px auto;
     display: block;
 }
 
@@ -107,41 +139,67 @@ h1 {
   Navigation Styles
 ==================================== */
 
+.navbar {
+    background-color: #247ba0;
+    padding: 10px 60px;
+}
+
+.navbarcontent {
+    width: 80%;
+    margin: 0px auto;
+}
+
 .navbarname {
     font-size: .95em;
     font-weight: normal;
-
+    margin: 0px;
+    text-align: center;
 }
 
 .navbarname > a {
-    color: green;
+    color: white;
+	font-family: 'Fredoka One', sans-serif;
+	font-size: 1.6em;
+	vertical-align: middle;
+}
+
+.navbarname > a:hover {
+    text-decoration: none;
 }
 
 .navbaritems {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     list-style-type: none;
 }
 
 .navbaritem {
     display: block;
+    padding: 3px 5px;
 }
 
 .navbaritems li:hover {
-    background-color: blue;
+    color: #70c1b3;
+    text-decoration: none;
 }
 
 .navbarsprite {
-    color: green;
-    font-size: .95em;
+    color: white;
 }
 
 .navbaritems a:link,
 .navbaritems a:visited,
 .navbaritems a:active,
 .navbaritems a:hover {
-    color: red;
+    color: white;
     font-size: .95em;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+}
+
+.navbaritems a:hover {
+    color: #70c1b3;
 }
 
 /* =================================
@@ -151,29 +209,54 @@ h1 {
 #promo-box {
     display: block;
     width: 100%;
-    background-color: grey;
+    background-color: white;
     padding: 15px;
 }
 
-/*#promo-box-image {
-    display: block;
-    margin: 0px auto;
-}*/
+#promo-box-title,
+#promo-box-tagline {
+    color: #247ba0;
+}
 
 #promo-box-title {
     text-align: center;
+	font-family: 'Fredoka One', sans-serif;
+	font-weight: normal;
+	font-size: 7em;
 }
 
 #promo-box-tagline {
     text-align: center;
+    font-size: 1.7em;
+}
+
+#promo-box-tagline span {
+    background-color: #f3ffbd;
+    text-decoration: underline wavy #ff1654;
 }
 
 #bellLarge {
     font-size: 300px;
-    color: #008000;
+    color: #70c1b3;
     display: block;
     margin: 0px auto;
     text-align: center;
+}
+
+#sign-up1,
+#sign-up2 {
+    margin: 40px auto;
+    width: 200px;
+}
+
+#sign-up1 {
+    display: none;
+}
+
+#about {
+    font-size: 1.3em;
+    line-height: 1.7em;
+    padding: 20px 60px;
 }
 
 /* =================================
@@ -187,15 +270,13 @@ h1 {
 
 .remindersHeader {
     display: none;
+    border-bottom: 1px #ddd solid;
 }
 
 .remindersRow {
-    border-bottom: 1px #f3ffbd solid;
+    border-bottom: 1px #ddd solid;
+    padding: 15px 0px;
 }
-
-/*.remindersRow:hover {
-    background-color: #aaa;
-}*/
 
 .remindersRow {
     display: inline-block;
@@ -206,7 +287,6 @@ h1 {
     display: block;
     width: 100%;
     float: left;
-    padding: 3px 15px;
 }
 
 #remindersDay:before {
@@ -232,6 +312,67 @@ h1 {
 .button.small {
     padding: 2px 10px;
     line-height: 1.3em;
+    width: 80px;
+    font-size: 1em;
+    background-color: white;
+    border: 1px #70c1b3 solid;
+    color: #70c1b3
+}
+
+.button.small:hover {
+    color: white;
+    background-color: #b2dbbf;
+    border-color: #b2dbbf;
+}
+
+#my-reminders {
+    margin-top: 60px;
+}
+
+/* =================================
+  Footer Styles
+==================================== */
+
+.footer {
+    background-color: #a4a4a4;
+    padding: 10px 60px;
+}
+
+.footer-content {
+    width: 80%;
+    margin: 0px auto;
+}
+
+.footer-items {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    color: white;
+    font-size: .75em;
+}
+
+.footer-item {
+    display: block;
+    padding: 3px 5px;
+}
+
+.footer-items li:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-items a:link,
+.footer-items a:visited,
+.footer-items a:active,
+.footer-items a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-items a:hover {
+    color: white;
+    text-decoration: underline;
+    text-decoration-style: dotted;
 }
 
 /* =================================
@@ -248,14 +389,51 @@ h1 {
 }
 
 .highlighted {
-  animation: highlight 20s;
+  animation: highlight 10s;
 }
 
 /* =================================
   Media Queries
 ==================================== */
 
-@media (min-width: 900px) {
+@media (min-width: 1055px) {
+
+	/* ---- Container Styles ---- */
+
+	.content,
+	.navbarcontent,
+	.footer-content {
+	    max-width: 1000px;
+	}
+
+	.content {
+        margin-top: 90px;
+        margin-bottom: 50px;
+        border-radius: 5px;
+        padding-top: 40px;
+        /*box-shadow: 2px 2px 30px #f1f1f1;*/
+    }
+
+    #promo-box {
+        display: table;
+        position: relative;
+        width: 100%;
+    }
+
+    #promo-box-image,
+    #promo-box-text {
+        display: table-cell;
+        vertical-align: middle;
+        height: 100%;
+    }
+
+    #promo-box-image {
+        padding-left: 10%;
+    }
+
+    #promo-box-text {
+        padding-right: 10%;
+    }
 
 	/* ---- Form Styles ---- */
 
@@ -265,18 +443,55 @@ h1 {
 
 	/* ---- Navigation ---- */
 
+    .navbar {
+        background-color: #247ba0;
+        padding: 0px;
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        z-index: 1;
+        box-shadow: 0px 1px 7px #9E9E9E;
+    }
+
+    .navbarcontent {
+        height: 100%;
+        vertical-align: center;
+        padding: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
     .navbarname {
         float: left;
         display: inline-block;
+        margin: 8px 0px 8px 60px;
     }
 
     .navbaritems {
         float: right;
+        margin-right: 60px;
+        height: 100%;
+        vertical-align: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding: 0px;
     }
 
     .navbaritem {
         display: inline-block;
-        margin-left: .5em;
+        padding-left: .35em;
+        padding-right: .15em;
+        height: 100%;
+        vertical-align: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding: 0px;
+    }
+
+    .navbaritem a {
+        margin: 0px 0px 0px 15px;
+        padding-top: 12px;
+        padding-bottom: 12px;
     }
 
 	/* ---- Reminders ---- */
@@ -287,11 +502,12 @@ h1 {
 
 	.remindersHeader {
 	    display: table-header-group;
-	}
+	    margin-right: 10px;
+    }
 
 	.remindersHeader td {
-	    padding: 0px 15px;
 	    font-weight: bold;
+	    padding: 10px 10px 10px 0px;
 	}
 
 	.remindersRow {
@@ -301,7 +517,12 @@ h1 {
 	.remindersCell {
 	    display: table-cell;
 	    float: none;
+	    padding: 10px 10px 10px 0px;
 	}
+
+	.no-reminders {
+	    padding-top: 10px;
+    }
 
     #remindersDay:before,
     #remindersTime:before,
@@ -328,6 +549,31 @@ h1 {
 
     #remindersDelete {
         width: 10%;
+        font-size: .75em;
+    }
+
+    .button.small {
+        padding: 6px 0px;
+    }
+
+	/* ---- Footer ---- */
+
+    .footer {
+        padding: 6px;
+        background-color: black;
+    }
+
+    .footer-items {
+        margin: 0px;
+        text-align: center;
+        line-height: 1em;
+    }
+
+    .footer-item {
+        display: inline-block;
+        padding: 0px;
+        margin: 0px .5em;
+        line-height: 1em;
     }
 
 	/* ---- Float clearfix ---- */
@@ -340,8 +586,21 @@ h1 {
 
 }
 
-@media (min-width: 1100px) {
+/* COLORS IN THIS STYLESHEET
 
-	/* ---- Navigation ---- */
+    Primary color scheme below from:
+    https://coolors.co/247ba0-70c1b3-b2dbbf-f3ffbd-ff1654
 
-}
+    #247ba0 - blue for header bar and hyperlinks
+    #70c1b3 - dark green for buttons and hovered clickables
+    #b2dbbf - light green for button hovers
+    #f3ffbd - yellow for alert message backgrounds
+    #ff1654 - red for alert message text
+
+    Other colors:
+    #333    - body text
+    #008000 - h1 text
+    #f5f5f5 - page background and dropdown option background
+    #a4a4a4 - border lines on table and forms
+
+*/

@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block body %}
+
+        <div id="promo-box" class="clearfix">
+            <div id="promo-box-image"><span class="fa fa-bell-o" id="bellLarge" aria-hidden="true"></span></div>
+            <div id="promo-box-text">
+                <h2 id="promo-box-title">jog.gy</h2>
+                <h3 id="promo-box-tagline">reminders to jog your brain</h3>
+            </div>
+        </div>
+
+        <div class="about_page_sections" id="sign-up1">
+            <a href="{{ url_for('new_user') }}" class="sign-up-button">Sign Up</a>
+        </div>
+
+        <div class="about-page-sections" id="about">
+            <p><span class='joggy'>jog.gy</span> is a simple service to send
+                yourself reminder emails. It currently supports recurring reminders
+                that are sent weekly at the date and time you select.
+                <span class='joggy'>jog.gy</span> was <a
+                        href="https://github.com/sethschori/">created by Seth Schori</a>
+                while on a programming retreat at <a href="https://www.recurse.com/">Recurse Center</a>.</p>
+        </div>
+
+        <div class="about_page_sections" id="sign-up2">
+            <a href="{{ url_for('new_user') }}" class="button">Sign Up</a>
+        </div>
+
+        {#
+        <div class="about-page-sections" id="disclaimer">
+            <h3>Disclaimer</h3>
+            <p><span class='joggy'>jog.gy</span> is provided free of charge. By
+            signing up you agree that the services are provided as-is, may contain
+            bugs, and may not perform as expected. In short, don't use
+            <span class='joggy'>jog.gy</span> for anything mission-critical.</p>
+        </div>
+
+        <div class="about-page-sections" id="privacy">
+            <h3>Privacy Policy</h3>
+            <p>This site uses cookies in order to enable you to stay logged in. The
+            cookie contains your email address, ID, and time zone and is stored in an
+            encrypted format. This site requests a limited set of information from you
+            when you sign up or when you schedule reminders; this information is stored
+            on Amazon Web Services servers, which <span class='joggy'>jog.gy</span>
+            runs on. The information collected by <span class='joggy'>jog.gy</span> is
+            only used to make the reminders function, and there is no interest or
+            intention in using the information for any other purpose. The information
+            you provide will not be sold or given to third parties.</p>
+        </div>
+        #}
+
+{% endblock %}
