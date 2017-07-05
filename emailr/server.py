@@ -98,7 +98,7 @@ def new_user():
             return redirect(url_for('show_events'))
         except exc.IntegrityError as e:
             db_session.rollback()
-            if str(e).find("UNIQUE constraint failed") > -1:
+            if str(e).find("duplicate key value") > -1:
                 e = 'That email address is already in use.'
             flash('Sorry, an error occurred when trying to create your '
                   'account.')
