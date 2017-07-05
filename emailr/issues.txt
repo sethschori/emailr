@@ -1,2 +1,0 @@
-- update utc occurrences when user time zone changes
-- domain: prod.email cue prod.im jog.gy
