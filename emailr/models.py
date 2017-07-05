@@ -11,18 +11,19 @@ class User(Base):
 
     id = Column(Integer, primary_key=True)
     email = Column(String(128), unique=True, nullable=False)
+    pwd_hash = Column(String(172), nullable=False)
     timezone_str = Column(String(64), nullable=False)
-    # hard_bounce = Column(Boolean, nullable=False)
-    oauth = Column(String(256))
+    hard_bounce = Column(Boolean, nullable=False, default=False)
+    active = Column(Boolean, nullable=False, default=False)
     events = relationship("Event", backref="user")
 
-    def __init__(self, email, timezone_str):
+    def __init__(self, email, pwd_hash, timezone_str):
         self.email = email
         self.timezone_str = timezone_str
+        self.pwd_hash = pwd_hash
 
     def __repr__(self):
-        return "<user {email} {oauth}>".format(email=self.email,
-                                               oauth=self.oauth)
+        return "<user {email}>".format(email=self.email, oauth=self.oauth)
 
 
 class Event(Base):
